@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 5.6.0
+
+  dependencies:
+    override:
+    - npm install --dev
+
+dependencies:
+  pre:
+    - npm install mocha -g
+
+test:
+  override:
+    - mocha ./src/test/helper/browser.js src/test/**/*.spec.js
