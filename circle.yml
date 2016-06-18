@@ -14,7 +14,8 @@ test:
     - webpack
     - mocha ./src/test/helper/browser.js src/test/**/*.spec.js
 
-production:
-    branch: master
-    commands:
-      - firebase deploy --token=$FIREBASE_TOKEN --non-interactive
+deployment:
+  production:
+      branch: master
+      commands:
+        - firebase deploy --token=$FIREBASE_TOKEN --non-interactive
