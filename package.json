@@ -26,6 +26,7 @@
     "enzyme": "^2.3.0",
     "eslint": "^2.13.0",
     "eslint-plugin-react": "^5.2.2",
+    "html-webpack-plugin": "^2.21.0",
     "jsdom": "^9.2.1",
     "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
