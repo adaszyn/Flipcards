@@ -1,7 +1,5 @@
 .Flipcard {
-    height: 300px;
     width: 100%;
-    background-color: rgb(236, 236, 236);
     font-family: Cormorant;
     font-size: 50px;
     text-align: center;
@@ -16,8 +14,9 @@
 }
 
 .flip-container, .front, .back {
-	width: 320px;
-	height: 480px;
+	width: 100%;
+	height:100vh;
+
 }
 
 /* flip speed goes here */
@@ -35,15 +34,16 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+  background-image: url(https://haeckdesign.com/images/freebies/patterns/hd_paper.jpg);
+  border-radius: 18px;
+  border: 4px solid grey;
 }
 
 .front {
 	z-index: 2;
-  background-color: blue;
 	transform: rotateY(0deg);
 }
 
 .back {
 	transform: rotateY(180deg);
-  background-color: red;
 }

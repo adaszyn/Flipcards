@@ -1,25 +1,25 @@
 import React, {Component} from "react";
 import Swipeable from "react-swipeable";
 
-export const FlipcardComponent = ({
-    back,
-    front,
-    onSwipeRight,
-    onSwipeLeft,
-    flipped
-}) => {
-    return (
-    <Swipeable onSwipedRight={onSwipeRight} onSwipedLeft={onSwipeLeft}>
-        <div className="Flipcard" onClick={() => {}}>
-            <div className="flip-container" ontouchstart="this.classList.toggle('hover');">
-                <div className={"flipper" + (flipped ? " flipped" : "")} >
-                    <div className="front">{front}</div>
-                    <div className="back">{back}</div>
+export class FlipcardComponent extends Component {
+    constructor() {
+      super();
+      this.state = {flipped: false}
+    }
+    render() {
+        return (
+            <Swipeable onSwipedRight={this.props.onSwipeRight} onSwipedLeft={this.props.onSwipeLeft}>
+                <div className="Flipcard" onClick={() => {this.setState({flipped: !this.state.flipped})}}>
+                    <div className="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div className={"flipper" + (this.state.flipped ? " flipped" : "")}>
+                            <div className="front">{this.props.front}</div>
+                            <div className="back">{this.props.back}</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </Swipeable>
-);
+            </Swipeable>
+        );
+    }
 }
 
 FlipcardComponent.propTypes = {
