@@ -5,4 +5,4 @@ import { FlipcardReducer } from  "../reducers/FlipcardReducer";
 
 export default createStore(combineReducers({
   flipcards: FlipcardReducer
-}))
+}),undefined,  window.devToolsExtension ? window.devToolsExtension() : f => f)

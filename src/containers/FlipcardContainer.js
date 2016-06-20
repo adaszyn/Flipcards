@@ -2,9 +2,10 @@ import { connect } from "react-redux"
 import {FlipcardComponent} from "../components/FlipcardComponent";
 
 const mapStateToProps = (state) => {
+  const flipcard = state.flipcards.flipcards[state.flipcards.selectedFlipcardIndex];
   return {
-    content: "",
-    title: ""
+    front: (flipcard ? flipcard.front : null),
+    back: (flipcard ? flipcard.back : null)
   }
 }
 
@@ -15,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const FlipcardContainer = connect(
+export const FlipcardContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(FlipcardComponent)

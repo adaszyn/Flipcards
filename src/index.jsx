@@ -1,5 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+// TODO: add linter to circleci build process
+
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
 
 ReactDOM.render(<App />, document.getElementById("root"));

@@ -3,10 +3,7 @@ var webpack = require("webpack");
 var HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  devtool: "inline-source-map",
   entry: [
-    "webpack-dev-server/client?http://localhost:3001",
-    "webpack/hot/only-dev-server",
     "./src/index.jsx"
   ],
   resolve: {
@@ -17,11 +14,13 @@ module.exports = {
     filename: "bundle.js",
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
     template: "src/index.ejs",
     inject: "body"
-  })
+  }),
+  new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    })
   ],
   module: {
     loaders: [
@@ -31,7 +30,7 @@ module.exports = {
       },
       {
       test: /\.jsx?$/,
-      loaders: ["react-hot", "babel?presets[]=react,presets[]=es2015"],
+      loaders: ["babel?presets[]=react,presets[]=es2015"],
       include: path.join(__dirname, "src")
     }
 

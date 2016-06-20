@@ -1,0 +1,8 @@
+{
+  "flipcards": [
+    {"front": "Hello", "back": "World"},
+    {"front": "Front", "back": "Back"},
+    {"front": "Lorem", "back": "Ipsum"},
+    {"front": "Big", "back": "World"}
+  ]
+}

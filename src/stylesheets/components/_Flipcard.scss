@@ -11,7 +11,7 @@
 .flip-container {
 	perspective: 1000px;
 }
-.flipper, .flip-container.hover .flipper {
+.flipper.flipped {
 		transform: rotateY(180deg);
 }
 
@@ -39,9 +39,11 @@
 
 .front {
 	z-index: 2;
+  background-color: blue;
 	transform: rotateY(0deg);
 }
 
 .back {
 	transform: rotateY(180deg);
+  background-color: red;
 }

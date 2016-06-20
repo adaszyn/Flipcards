@@ -12,7 +12,7 @@ dependencies:
 
 test:
   override:
-    - webpack
+    - webpack --config webpack.production.js
     - mocha ./src/test/helper/browser.js src/test/**/*.spec.js
 
 deployment:

@@ -16,7 +16,7 @@ describe("FlipcardReducer", function () {
   it("should add new flipcard", function () {
     const front = "My front";
     const back = "My back";
-    var state = FlipcardReducer(undefined, AddFlipcard(front, back));
+    var state = FlipcardReducer(undefined, AddFlipcard({front, back}));
     expect(state.flipcards).to.have.lengthOf(1);
     expect(state.flipcards[0].id).to.equal(0);
     expect(state.flipcards[0].front).to.equal(front);
@@ -46,5 +46,6 @@ describe("FlipcardReducer", function () {
     expect(state.flipcards.filter((entry) => entry.id === 0)).to.have.lengthOf(0);
     expect(state.flipcards.filter((entry) => entry.id !== 0)).to.have.lengthOf(2);
   });
+
 
 });
