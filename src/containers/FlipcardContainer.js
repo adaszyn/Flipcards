@@ -1,5 +1,6 @@
 import { connect } from "react-redux"
-import {FlipcardComponent} from "../components/FlipcardComponent";
+import { FlipcardComponent } from "../components/FlipcardComponent";
+import { getPreviousFlipcard, getNextFlipcard } from "../actions/FlipcardActions";
 
 const mapStateToProps = (state) => {
   const flipcard = state.flipcards.flipcards[state.flipcards.selectedFlipcardIndex];
@@ -11,8 +12,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSwipeLeft: () => {console.log("swipe left")},
-    onSwipedRight: () => {console.log("swipe right")}
+    onSwipeLeft: () => {
+      dispatch(getPreviousFlipcard())
+    },
+    onSwipeRight: () => {
+      dispatch(getNextFlipcard())
+    }
   }
 }
 

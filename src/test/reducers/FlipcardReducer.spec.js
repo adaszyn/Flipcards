@@ -1,7 +1,7 @@
 import React from "react";
 import { expect } from "chai";
 import { FlipcardReducer } from "../../reducers/FlipcardReducer";
-import { AddFlipcard, setFlipcardGlobalIndex, RemoveFlipcard } from "../../actions/FlipcardActions";
+import { AddFlipcard, setFlipcardGlobalIndex, RemoveFlipcard, getNextFlipcard, getPreviousFlipcard } from "../../actions/FlipcardActions";
 
 describe("FlipcardReducer", function () {
 
@@ -47,5 +47,16 @@ describe("FlipcardReducer", function () {
     expect(state.flipcards.filter((entry) => entry.id !== 0)).to.have.lengthOf(2);
   });
 
+  it("Shoud circularly iterate over flipcards.", function() {
+    let state = FlipcardReducer(undefined, AddFlipcard({front:"1", back: "a"}));
+    state = FlipcardReducer(state, AddFlipcard({front:"2", back: "b"}));
+    expect(state.selectedFlipcardIndex).to.equal(-1);
+    state = FlipcardReducer(state, getNextFlipcard());
+    expect(state.selectedFlipcardIndex).to.equal(0);
+    state = FlipcardReducer(state, getPreviousFlipcard());
+    expect(state.selectedFlipcardIndex).to.equal(1);
+
+
+  });
 
 });

@@ -15,9 +15,9 @@ export const FlipcardReducer = (state = {
             })
 
       case "GET_NEXT":
-        return Object.assign({}, state, {selectedFlipcardIndex: state.selectedFlipcardIndex + 1})
+        return Object.assign({}, state, {selectedFlipcardIndex: (state.selectedFlipcardIndex + 1) % state.flipcards.length})
       case "GET_PREVIOUS":
-          return Object.assign({}, state, {selectedFlipcardIndex: state.selectedFlipcardIndex - 1})
+          return Object.assign({}, state, {selectedFlipcardIndex: state.selectedFlipcardIndex === 0 ? state.flipcards.length - 1 : state.selectedFlipcardIndex - 1})
       case "REMOVE_FLIPCARD":
         return Object.assign({}, state, {flipcards: [
           ...state.flipcards.filter((flipcard) => flipcard.id !== action.id)

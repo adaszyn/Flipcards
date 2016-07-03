@@ -20,8 +20,15 @@ export const RemoveFlipcard = (id) => {
   }
 }
 
-export const GetNextFlipcard = () => {
+export const getNextFlipcard = () => {
   return {
     type: "GET_NEXT"
+  }
+}
+
+
+export const getPreviousFlipcard = () => {
+  return {
+    type: "GET_PREVIOUS"
   }
 }
